@@ -1,5 +1,15 @@
 # GistUpdater
 
+[![Build Status](https://img.shields.io/circleci/project/masutaka/gist_updater/master.svg?maxAge=2592000?style=flat-square)](circleci)
+[![License](https://img.shields.io/github/license/masutaka/gist_updater.svg?maxAge=2592000?style=flat-square)](license)
+[![Gem](https://img.shields.io/gem/v/gist_updater.svg?maxAge=2592000?style=flat-square)](gem-link)
+
+[circleci]: https://circleci.com/gh/masutaka/gist_updater
+[license]: https://github.com/masutaka/gist_updater/blob/master/LICENSE.txt
+[gem-link]: http://badge.fury.io/rb/gist_updater
+
+## Description
+
 Updates your Gist files which are defined in YAML
 
 ## Installation
