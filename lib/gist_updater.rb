@@ -1,5 +1,5 @@
 # frozen_string_literal: true
 
-require 'gist_updater/command'
+require 'gist_updater/commands'
 require 'gist_updater/content'
 require 'gist_updater/version'
