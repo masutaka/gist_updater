@@ -25,7 +25,7 @@ module GistUpdater
         gist_id,
         files: { basename => { 'content' => local } }
       )
-      puts "updateed `#{name}` to #{result.html_url}"
+      puts "Updated `#{name}` to #{result.html_url}"
       result
     end
 

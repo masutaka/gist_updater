@@ -13,6 +13,9 @@ module GistUpdater
                  aliases: :u, desc: 'GitHub username'
     class_option :token, type: :string,
                  aliases: :t, desc: 'GitHub personal access token'
+    class_option :debug, type: :boolean,
+                 default: false,
+                 aliases: :d, desc: 'Debug mode'
 
     desc 'update', 'Update your Gist files (default)'
     def update
@@ -23,7 +26,12 @@ module GistUpdater
           gist_id: c['gist_id'],
           file_name: c['file_name']
         )
-        content.update unless content.gist == content.local
+
+        if content.gist == content.local
+          puts "There was no need to update `#{c['file_name']}`." if options[:debug]
+        else
+          content.update
+        end
       end
     end
 
