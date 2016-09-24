@@ -1,6 +1,6 @@
 # GistUpdater
 
-Updates your Gist files which are defined in YAML file.
+Updates your Gist files which are defined in YAML.
 
 ## Installation
 

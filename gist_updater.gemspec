@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['masutaka.net@gmail.com']
 
   spec.summary       = 'Updates your Gist files'
-  spec.description   = 'Updates your Gist files which defined in YAML file'
+  spec.description   = 'Updates your Gist files which defined in YAML'
   spec.homepage      = 'https://github.com/masutaka/gist_updater'
   spec.license       = 'MIT'
 
