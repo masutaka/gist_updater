@@ -34,11 +34,11 @@ module GistUpdater
     end
 
     def user
-      @user ||= options[:user] || ENV['GITHUB_USER']
+      @user ||= options[:user] || ENV['GISTUPDATER_USER']
     end
 
     def access_token
-      @access_token ||= options[:token] || ENV['GITHUB_ACCESS_TOKEN']
+      @access_token ||= options[:token] || ENV['GISTUPDATER_ACCESS_TOKEN']
     end
   end
 end
