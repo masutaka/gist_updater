@@ -1,3 +1,7 @@
+dependencies:
+  pre:
+    - gem install bundler --no-document
+
 test:
   override:
     - bundle exec rubocop
