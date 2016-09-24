@@ -27,6 +27,11 @@ module GistUpdater
       end
     end
 
+    desc 'version', 'Display version'
+    def version
+      puts VERSION
+    end
+
     private
 
     def config
