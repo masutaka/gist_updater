@@ -17,7 +17,12 @@ module GistUpdater
     desc 'update', 'Update your Gist files (default)'
     def update
       config.each do |c|
-        content = Content.new(user, access_token, c['gist_id'], c['file_name'])
+        content = Content.new(
+          user: user,
+          access_token: access_token,
+          gist_id: c['gist_id'],
+          file_name: c['file_name']
+        )
         content.update unless content.gist == content.local
       end
     end
