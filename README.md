@@ -1,8 +1,6 @@
 # GistUpdater
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/gist_updater`. To experiment with that code, run `bin/console` for an interactive prompt.
-
-TODO: Delete this and the text above, and describe your gem
+Updates your Gist files which are defined in YAML file.
 
 ## Installation
 
@@ -22,7 +20,43 @@ Or install it yourself as:
 
 ## Usage
 
-TODO: Write usage instructions here
+```
+gist_updater commands:
+  gist_updater help [COMMAND]  # Describe available commands or one specific command
+  gist_updater update          # Update your Gist files (default)
+  gist_updater version         # Display version
+
+Options:
+  y, [--yaml=YAML]            # User definition YAML file
+                              # Default: gist_updater.yml
+  u, [--user=USER]            # GitHub username
+  t, [--token=TOKEN]          # GitHub personal access token
+  d, [--debug], [--no-debug]  # Debug mode
+```
+
+### YAML format
+
+```yaml
+-
+  - <gist_id1>
+  - <path to file1>
+-
+  - <gist_id2>
+  - <path to file2>
+```
+
+For example,
+
+```yaml
+-
+  # https://gist.github.com/masutaka/8177244
+  - 8177244
+  - .emacs.d/init.el
+-
+  # https://gist.github.com/masutaka/9642146
+  - 9642146
+  - bin/my-brew-bundle
+```
 
 ## Development
 
@@ -38,4 +72,3 @@ Bug reports and pull requests are welcome on GitHub at https://github.com/[USERN
 ## License
 
 The gem is available as open source under the terms of the [MIT License](http://opensource.org/licenses/MIT).
-
