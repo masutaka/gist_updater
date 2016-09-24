@@ -2,10 +2,10 @@ require 'octokit'
 
 module GistUpdater
   class Content
-    def initialize(user, gist_id, file_name)
+    def initialize(user, access_token, gist_id, file_name)
       @client = Octokit::Client.new(
         login:        user,
-        access_token: ENV['GITHUB_ACCESS_TOKEN']
+        access_token: access_token,
       )
       @gist_id  = gist_id
       @name     = file_name
