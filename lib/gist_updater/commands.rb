@@ -19,28 +19,19 @@ module GistUpdater
                          desc: 'Debug mode', default: false
 
     desc 'update', 'Update your Gist files (default)'
-    # rubocop:disable Metrics/AbcSize
-    # rubocop:disable Metrics/MethodLength
     def update
-      config.each do |c|
-        content = Content.new(
-          user: user,
-          access_token: access_token,
-          gist_id: c['gist_id'],
-          file_name: c['file_name']
-        )
+      configs.each do |config|
+        content = ContentFactory.build(user, access_token, config)
 
         if content.gist == content.local
           puts <<~EOS if options[:debug]
-            There was no need to update `#{c['file_name']}`.
+            There was no need to update `#{content.name}`.
           EOS
         else
           content.update
         end
       end
     end
-    # rubocop:enable Metrics/MethodLength
-    # rubocop:enable Metrics/AbcSize
 
     desc 'version', 'Display version'
     def version
@@ -49,8 +40,8 @@ module GistUpdater
 
     private
 
-    def config
-      @config ||= YAML.load(IO.read(options[:yaml]))
+    def configs
+      @configs ||= YAML.load(IO.read(options[:yaml]))
     end
 
     def user

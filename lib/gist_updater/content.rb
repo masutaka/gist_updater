@@ -5,6 +5,8 @@ require 'octokit'
 module GistUpdater
   # Content definition
   class Content
+    attr_reader :name
+
     def initialize(user:, access_token:, gist_id:, file_name:)
       @client = Octokit::Client.new(
         login:        user,
@@ -34,6 +36,6 @@ module GistUpdater
 
     private
 
-    attr_reader :client, :gist_id, :name, :basename
+    attr_reader :client, :gist_id, :basename
   end
 end
