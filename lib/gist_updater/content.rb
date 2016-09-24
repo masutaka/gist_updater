@@ -1,11 +1,14 @@
+# frozen_string_literal: true
+
 require 'octokit'
 
 module GistUpdater
+  # Content definition
   class Content
     def initialize(user:, access_token:, gist_id:, file_name:)
       @client = Octokit::Client.new(
         login:        user,
-        access_token: access_token,
+        access_token: access_token
       )
       @gist_id  = gist_id
       @name     = file_name

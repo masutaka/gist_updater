@@ -1,23 +1,26 @@
-require 'thor'
+# frozen_string_literal: true
 
+require 'thor'
 require 'yaml'
 
 module GistUpdater
+  # Provide command
   class Command < Thor
     package_name 'gist_updater'
     default_task :update
-    class_option :yaml, type: :string,
-                 default: 'gist_updater.yml',
-                 aliases: :y, desc: 'User definition YAML file'
-    class_option :user, type: :string,
-                 aliases: :u, desc: 'GitHub username'
-    class_option :token, type: :string,
-                 aliases: :t, desc: 'GitHub personal access token'
-    class_option :debug, type: :boolean,
-                 default: false,
-                 aliases: :d, desc: 'Debug mode'
+    class_option :yaml, type: :string, aliases: :y,
+                        desc: 'User definition YAML file',
+                        default: 'gist_updater.yml'
+    class_option :user, type: :string, aliases: :u,
+                        desc: 'GitHub username'
+    class_option :token, type: :string, aliases: :t,
+                         desc: 'GitHub personal access token'
+    class_option :debug, type: :boolean, aliases: :d,
+                         desc: 'Debug mode', default: false
 
     desc 'update', 'Update your Gist files (default)'
+    # rubocop:disable Metrics/AbcSize
+    # rubocop:disable Metrics/MethodLength
     def update
       config.each do |c|
         content = Content.new(
@@ -28,12 +31,16 @@ module GistUpdater
         )
 
         if content.gist == content.local
-          puts "There was no need to update `#{c['file_name']}`." if options[:debug]
+          puts <<~EOS if options[:debug]
+            There was no need to update `#{c['file_name']}`.
+          EOS
         else
           content.update
         end
       end
     end
+    # rubocop:enable Metrics/MethodLength
+    # rubocop:enable Metrics/AbcSize
 
     desc 'version', 'Display version'
     def version
@@ -47,11 +54,15 @@ module GistUpdater
     end
 
     def user
-      @user ||= options[:user] || ENV['GISTUPDATER_USER'] || help_and_exit
+      @user ||= options[:user] ||
+                ENV['GISTUPDATER_USER'] ||
+                help_and_exit
     end
 
     def access_token
-      @access_token ||= options[:token] || ENV['GISTUPDATER_ACCESS_TOKEN'] || help_and_exit
+      @access_token ||= options[:token] ||
+                        ENV['GISTUPDATER_ACCESS_TOKEN'] ||
+                        help_and_exit
     end
 
     def help_and_exit

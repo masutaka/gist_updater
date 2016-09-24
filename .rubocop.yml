@@ -16,7 +16,6 @@ AllCops:
     - '**/*.opal'
     - '**/config.ru'
     - '**/Gemfile'
-    - '**/Rakefile'
     - '**/Capfile'
     - '**/Guardfile'
     - '**/Podfile'
@@ -28,6 +27,9 @@ AllCops:
     - '**/Fastfile'
     - '**/*Fastfile'
   Exclude:
+    - 'Rakefile'
+    - 'bin/console'
+    - 'bin/setup'
     - 'vendor/**/*'
   # Default formatter will be used if no -f/--format option is given.
   DefaultFormatter: progress
@@ -78,7 +80,7 @@ AllCops:
   # If a value is specified for TargetRubyVersion then it is used.
   # Else if .ruby-version exists and it contains an MRI version it is used.
   # Otherwise we fallback to the oldest officially supported Ruby version (2.0).
-  TargetRubyVersion: ~
+  TargetRubyVersion: 2.3
 
 # Indent private/protected/public as deep as method definitions
 Style/AccessModifierIndentation:
