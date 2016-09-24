@@ -23,6 +23,13 @@ Style/Copyright:
   Description: 'Include a copyright notice in each file before any code.'
   Enabled: false
 
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: false
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+
 Style/DocumentationMethod:
   Description: 'Public methods.'
   Enabled: false

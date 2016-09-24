@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 module GistUpdater
-  # ContentFactory
   class ContentFactory
     def self.build(user, access_token, config, content_class = Content)
       content_class.new(

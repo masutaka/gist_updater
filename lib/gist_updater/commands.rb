@@ -4,7 +4,6 @@ require 'thor'
 require 'yaml'
 
 module GistUpdater
-  # Provide command
   class Commands < Thor
     package_name 'gist_updater'
     default_task :update

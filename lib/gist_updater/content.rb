@@ -3,7 +3,6 @@
 require 'octokit'
 
 module GistUpdater
-  # Content definition
   class Content
     attr_reader :name
 
