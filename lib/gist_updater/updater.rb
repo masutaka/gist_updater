@@ -18,7 +18,8 @@ module GistUpdater
             There was no need to update `#{content.name}`.
           EOS
         else
-          content.update
+          result = content.update
+          puts "Updated `#{content.name}` to #{result.html_url}"
         end
       end
     end

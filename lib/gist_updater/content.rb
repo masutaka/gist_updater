@@ -25,12 +25,10 @@ module GistUpdater
     end
 
     def update
-      result = client.edit_gist(
+      client.edit_gist(
         gist_id,
         files: { basename => { 'content' => local } }
       )
-      puts "Updated `#{name}` to #{result.html_url}"
-      result
     end
 
     private
