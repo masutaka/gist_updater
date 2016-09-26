@@ -4,16 +4,11 @@ require 'octokit'
 
 module GistUpdater
   class Content
-    attr_reader :name
-
     def initialize(user:, access_token:, gist_id:, file_name:)
-      @client = Octokit::Client.new(
-        login:        user,
-        access_token: access_token
-      )
-      @gist_id  = gist_id
-      @name     = file_name
-      @basename = File.basename(file_name)
+      @user = user
+      @access_token = access_token
+      @gist_id = gist_id
+      @name = file_name
     end
 
     def update_if_need
@@ -25,6 +20,12 @@ module GistUpdater
     end
 
     private
+
+    attr_reader :user, :access_token, :gist_id, :name
+
+    def client
+      @client ||= Octokit::Client.new(login: user, access_token: access_token)
+    end
 
     def gist
       @gist ||= client.gist(gist_id).files[basename].content
@@ -41,6 +42,8 @@ module GistUpdater
       )
     end
 
-    attr_reader :client, :gist_id, :basename
+    def basename
+      @basename ||= File.basename(name)
+    end
   end
 end
