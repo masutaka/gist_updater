@@ -5,10 +5,10 @@ require 'octokit'
 module GistUpdater
   class Content
     def initialize(user:, access_token:, gist_id:, file_name:)
-      @user = user
+      @user         = user
       @access_token = access_token
-      @gist_id = gist_id
-      @name = file_name
+      @gist_id      = gist_id
+      @name         = file_name
     end
 
     def update_if_need
