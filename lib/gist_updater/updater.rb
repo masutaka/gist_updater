@@ -10,18 +10,26 @@ module GistUpdater
     end
 
     def update
+      count = 0
+
       config.each do |gist_id, file_path|
-        Content.new(
-          user: user,
-          access_token: access_token,
-          gist_id: gist_id,
-          file_path: file_path
-        ).update_if_need
+        count += 1 if update_1(gist_id, file_path)
       end
+
+      count
     end
 
     private
 
     attr_reader :user, :access_token, :config
+
+    def update_1(gist_id, file_path)
+      Content.new(
+        user: user,
+        access_token: access_token,
+        gist_id: gist_id,
+        file_path: file_path
+      ).update_if_need
+    end
   end
 end
