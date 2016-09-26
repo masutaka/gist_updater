@@ -12,11 +12,14 @@ module GistUpdater
     end
 
     def update_if_need
-      if gist == local
-        puts "There was no need to update `#{file_path}`." if GistUpdater.debug
-      else
-        puts "Updated `#{file_path}` to #{update.html_url}"
+      if need_to_update?
+        result = update
+        puts "Updated `#{file_path}` to #{result.html_url}"
+      elsif GistUpdater.debug
+        puts "There was no need to update `#{file_path}`."
       end
+
+      need_to_update?
     end
 
     private
@@ -25,6 +28,10 @@ module GistUpdater
 
     def client
       @client ||= Octokit::Client.new(login: user, access_token: access_token)
+    end
+
+    def need_to_update?
+      @need_to_update ||= gist != local
     end
 
     def gist
