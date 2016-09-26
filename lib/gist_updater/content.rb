@@ -19,7 +19,7 @@ module GistUpdater
         puts "There was no need to update `#{file_path}`."
       end
 
-      need_to_update?
+      result
     end
 
     private
