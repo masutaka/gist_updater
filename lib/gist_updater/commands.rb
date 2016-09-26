@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 require 'thor'
-require 'yaml'
 
 module GistUpdater
   class Commands < Thor
@@ -19,8 +18,8 @@ module GistUpdater
 
     desc 'update', 'Update your Gist files (default)'
     def update
-      configs.each do |config|
-        content = ContentFactory.build(user, access_token, config)
+      Config.new(options[:yaml]).each do |c|
+        content = ContentFactory.build(user, access_token, c)
 
         if content.gist == content.local
           puts <<~EOS if options[:debug]
@@ -38,10 +37,6 @@ module GistUpdater
     end
 
     private
-
-    def configs
-      @configs ||= YAML.load(IO.read(options[:yaml]))
-    end
 
     def user
       @user ||= options[:user] ||
