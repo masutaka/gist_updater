@@ -10,17 +10,14 @@ module GistUpdater
     end
 
     def update
-      config.each do |c|
-        content = ContentFactory.build(user, access_token, c)
-
-        if content.gist == content.local
-          puts <<~EOS if debug
-            There was no need to update `#{content.name}`.
-          EOS
-        else
-          result = content.update
-          puts "Updated `#{content.name}` to #{result.html_url}"
-        end
+      config.each do |gist_id, file_name|
+        Content.new(
+          user: user,
+          access_token: access_token,
+          gist_id: gist_id,
+          file_name: file_name,
+          debug: debug
+        ).update_if_need
       end
     end
 

@@ -10,7 +10,10 @@ module GistUpdater
 
     def each
       return enum_for(:each) unless block_given?
-      config.each { |c| yield(c) }
+
+      config.each do |gist_id, file_name|
+        yield(gist_id, file_name)
+      end
     end
 
     private
