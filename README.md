@@ -52,10 +52,10 @@ Options:
 require 'gist_updater'
 
 GistUpdater::Updater.new(
-  yaml:   <User definition YAML file>,
-  user:   <GitHub usename>,               # or $GISTUPDATER_USER
-  token:  <GitHub personal access token>, # or $GISTUPDATER_ACCESS_TOKEN
-  debug:  <true or false>
+  yaml:  'User definition YAML file',
+  user:  'GitHub usename',               # or $GISTUPDATER_USER
+  token: 'GitHub personal access token', # or $GISTUPDATER_ACCESS_TOKEN
+  debug: 'true or false'
 ).update
 #=> update count
 ```
@@ -64,11 +64,11 @@ GistUpdater::Updater.new(
 
 ```yaml
 -
-  - <gist_id1>
-  - <path to file1>
+  - 'gist_id1'
+  - 'path to file1'
 -
-  - <gist_id2>
-  - <path to file2>
+  - 'gist_id2'
+  - 'path to file2'
 ```
 
 For example,
