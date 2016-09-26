@@ -6,7 +6,7 @@ module GistUpdater
   class Content
     attr_reader :name
 
-    def initialize(user:, access_token:, gist_id:, file_name:, debug:)
+    def initialize(user:, access_token:, gist_id:, file_name:)
       @client = Octokit::Client.new(
         login:        user,
         access_token: access_token
@@ -14,12 +14,11 @@ module GistUpdater
       @gist_id  = gist_id
       @name     = file_name
       @basename = File.basename(file_name)
-      @debug = debug
     end
 
     def update_if_need
       if gist == local
-        puts "There was no need to update `#{name}`." if debug
+        puts "There was no need to update `#{name}`." if GistUpdater.debug
       else
         puts "Updated `#{name}` to #{update.html_url}"
       end
@@ -42,6 +41,6 @@ module GistUpdater
       )
     end
 
-    attr_reader :client, :gist_id, :basename, :debug
+    attr_reader :client, :gist_id, :basename
   end
 end
