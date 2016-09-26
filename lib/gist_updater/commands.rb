@@ -18,41 +18,12 @@ module GistUpdater
 
     desc 'update', 'Update your Gist files (default)'
     def update
-      Config.new(options[:yaml]).each do |c|
-        content = ContentFactory.build(user, access_token, c)
-
-        if content.gist == content.local
-          puts <<~EOS if options[:debug]
-            There was no need to update `#{content.name}`.
-          EOS
-        else
-          content.update
-        end
-      end
+      Updater.new(options).update
     end
 
     desc 'version', 'Display version'
     def version
       puts VERSION
-    end
-
-    private
-
-    def user
-      @user ||= options[:user] ||
-                ENV['GISTUPDATER_USER'] ||
-                help_and_exit
-    end
-
-    def access_token
-      @access_token ||= options[:token] ||
-                        ENV['GISTUPDATER_ACCESS_TOKEN'] ||
-                        help_and_exit
-    end
-
-    def help_and_exit
-      help
-      exit(1)
     end
   end
 end
