@@ -16,7 +16,7 @@ module GistUpdater
         result = update
         puts "Updated `#{file_path}` to #{result.html_url}"
       elsif GistUpdater.debug
-        puts "There was no need to update `#{file_path}`."
+        puts "There is no update for `#{file_path}`."
       end
 
       result
