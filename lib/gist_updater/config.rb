@@ -11,8 +11,8 @@ module GistUpdater
     def each
       return enum_for(:each) unless block_given?
 
-      config.each do |gist_id, file_name|
-        yield(gist_id, file_name)
+      config.each do |gist_id, file_path|
+        yield(gist_id, file_path)
       end
     end
 
