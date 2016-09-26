@@ -30,6 +30,8 @@ Or install it yourself as:
 
 ## Usage
 
+### CLI
+
 ```
 gist_updater commands:
   gist_updater help [COMMAND]  # Describe available commands or one specific command
@@ -44,7 +46,20 @@ Options:
   d, [--debug], [--no-debug]  # Debug mode
 ```
 
-### YAML format
+### Script
+
+```ruby
+require 'gist_updater'
+
+GistUpdater::Updater.new(
+  yaml:   <User definition YAML file>,
+  user:   <GitHub usename>,               # or $GISTUPDATER_USER
+  token:  <GitHub personal access token>, # or $GISTUPDATER_ACCESS_TOKEN
+  debug:  <true or false>
+).update
+```
+
+## YAML format
 
 ```yaml
 -
