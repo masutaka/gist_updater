@@ -64,11 +64,12 @@ GistUpdater::Updater.new(
 
 ```yaml
 -
-  - 'gist_id1'
-  - 'path to file1'
+  - 'gist_id_1'
+  - 'path to file_1'
 -
-  - 'gist_id2'
-  - 'path to file2'
+  - 'gist_id_2'
+  - 'path to file_2a'
+  - 'path to file_2b'
 ```
 
 For example,
@@ -79,9 +80,10 @@ For example,
   - 8177244
   - .emacs.d/init.el
 -
-  # https://gist.github.com/masutaka/9642146
-  - 9642146
-  - bin/my-brew-bundle
+  # https://gist.github.com/masutaka/f7ce8b3c71e995c20e48
+  - f7ce8b3c71e995c20e48
+  - circle.yml
+  - tasks/pushover.rake
 ```
 
 ## Development
