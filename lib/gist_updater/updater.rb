@@ -12,8 +12,10 @@ module GistUpdater
     def update
       count = 0
 
-      config.each do |gist_id, file_path|
-        count += 1 if update_1(gist_id, file_path)
+      config.each do |gist_id:, file_paths:|
+        file_paths.each do |file_path|
+          count += 1 if update_by_gist(gist_id, file_path)
+        end
       end
 
       count
@@ -23,11 +25,11 @@ module GistUpdater
 
     attr_reader :user, :access_token, :config
 
-    def update_1(gist_id, file_path)
+    def update_by_gist(id, file_path)
       Content.new(
         user: user,
         access_token: access_token,
-        gist_id: gist_id,
+        gist_id: id,
         file_path: file_path
       ).update_if_need
     end
