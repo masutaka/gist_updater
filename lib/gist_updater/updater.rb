@@ -12,8 +12,10 @@ module GistUpdater
     def update
       count = 0
 
-      config.each do |gist_id, file_path|
-        count += 1 if update_1(gist_id, file_path)
+      config.each do |gist_id, file_paths|
+        file_paths.each do |file_path|
+          count += 1 if update_1(gist_id, file_path)
+        end
       end
 
       count
