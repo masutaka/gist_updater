@@ -10,8 +10,11 @@ Gem::Specification.new do |spec|
   spec.authors       = ['Takashi Masuda']
   spec.email         = ['masutaka.net@gmail.com']
 
-  spec.summary       = 'Updates your Gist files'
-  spec.description   = 'Updates your Gist files which defined in YAML'
+  spec.summary       = 'Updates your Gist files defined in YAML'
+  spec.description   =<<~EOS
+    Updates your Gist files defined in YAML.
+    For example, it's useful for syncing GitHub and Gist in CI.
+  EOS
   spec.homepage      = 'https://github.com/masutaka/gist_updater'
   spec.license       = 'MIT'
 

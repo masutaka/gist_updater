@@ -10,7 +10,7 @@
 
 ## Description
 
-Updates your Gist files which are defined in YAML
+Updates your Gist files defined in YAML
 
 ## Installation
 
