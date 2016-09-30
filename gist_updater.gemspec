@@ -11,7 +11,7 @@ Gem::Specification.new do |spec|
   spec.email         = ['masutaka.net@gmail.com']
 
   spec.summary       = 'Updates your Gist files defined in YAML'
-  spec.description   =<<~EOS
+  spec.description   = <<~EOS
     Updates your Gist files defined in YAML.
     For example, it's useful for syncing GitHub and Gist in CI.
   EOS
