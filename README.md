@@ -12,6 +12,8 @@
 
 Updates your Gist files defined in YAML
 
+https://masutaka.net/chalow/2016-09-29-1.html (In Japanese)
+
 ## Installation
 
 Add this line to your application's Gemfile:
