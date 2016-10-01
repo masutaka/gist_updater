@@ -106,4 +106,4 @@ RSpec.configure do |config|
   # rubocop:enable Style/BlockComments
 end
 
-require_relative '../lib/gist_updater'
+require 'gist_updater'
