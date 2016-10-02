@@ -52,7 +52,7 @@ module GistUpdater
     end
 
     def pick_a_file(resource)
-      resource&.files&.file_name
+      resource.files[file_name] if resource
     end
 
     # Update a Gist file
