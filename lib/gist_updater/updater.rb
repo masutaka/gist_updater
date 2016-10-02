@@ -30,6 +30,9 @@ module GistUpdater
 
     attr_reader :user, :access_token, :config
 
+    # Update a Gist file
+    #
+    # @return (see GistUpdater::Content#update_if_need)
     def update_by_gist(id, file_path)
       Content.new(
         user: user,

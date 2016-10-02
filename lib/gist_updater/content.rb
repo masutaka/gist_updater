@@ -50,6 +50,9 @@ module GistUpdater
       @local ||= File.read(file_path)
     end
 
+    # Update a Gist file
+    #
+    # @return [Sawyer::Resource]
     def update
       client.edit_gist(
         gist_id,
