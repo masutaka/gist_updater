@@ -22,7 +22,7 @@ module GistUpdater
     # @return [NilClass] isnot updated
     def update_if_need
       if need_to_update?
-        result = update
+        result = format_result(update)
         puts "Updated `#{file_path}` to #{result.html_url}"
       elsif GistUpdater.debug
         puts "There is no update for `#{file_path}`."
@@ -49,6 +49,10 @@ module GistUpdater
 
     def local
       @local ||= File.read(file_path)
+    end
+
+    def format_result(resource)
+      resource&.files[file_name]
     end
 
     # Update a Gist file
