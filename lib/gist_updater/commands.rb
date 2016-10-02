@@ -3,6 +3,7 @@
 require 'thor'
 
 module GistUpdater
+  # CLI Interface
   class Commands < Thor
     package_name 'gist_updater'
     default_task :update
@@ -17,11 +18,17 @@ module GistUpdater
                          desc: 'Debug mode', default: false
 
     desc 'update', 'Update your Gist files (default)'
+    # CLI Interface to update your Gist
+    #
+    # @return (see GistUpdater::Updater#update)
     def update
       Updater.new(options).update
     end
 
     desc 'version', 'Display version'
+    # CLI Interface to display version
+    #
+    # @return (see Kernel.puts)
     def version
       puts VERSION
     end

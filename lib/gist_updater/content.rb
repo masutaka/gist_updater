@@ -3,7 +3,12 @@
 require 'octokit'
 
 module GistUpdater
+  # A content related to a gist file
   class Content
+    # @param user [String] GitHub username
+    # @param access_token [String] GitHub personal access token
+    # @param gist_id [String] A gist id
+    # @param file_path [String] A relative file path
     def initialize(user:, access_token:, gist_id:, file_path:)
       @user         = user
       @access_token = access_token
@@ -11,6 +16,10 @@ module GistUpdater
       @file_path    = file_path
     end
 
+    # Update the content if needed
+    #
+    # @return [Sawyer::Resource] an updated resource
+    # @return [NilClass] isnot updated
     def update_if_need
       if need_to_update?
         result = update
@@ -42,6 +51,9 @@ module GistUpdater
       @local ||= File.read(file_path)
     end
 
+    # Update a Gist file
+    #
+    # @return [Sawyer::Resource]
     def update
       client.edit_gist(
         gist_id,

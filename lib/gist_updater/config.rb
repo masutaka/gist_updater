@@ -3,11 +3,20 @@
 require 'yaml'
 
 module GistUpdater
+  # User configuration
   class Config
+    # @param file [String] a YAML file path
     def initialize(file)
       @file = file
     end
 
+    # Calls block once for each element in config
+    #
+    # @yield [gist_id:, file_paths:] Gist file paths
+    # @yieldparam gist_id [String] a Gist id
+    # @yieldparam file_paths [Array<String>] file paths
+    # @yieldreturn [Array]
+    # @return [Enumerator]
     def each
       return enum_for(:each) unless block_given?
 

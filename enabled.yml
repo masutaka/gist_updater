@@ -176,6 +176,20 @@ Style/PreferredHashMethods:
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#hash-key'
   Enabled: true
 
+Style/Documentation:
+  Description: 'Document classes and non-namespace modules.'
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+
+Style/DocumentationMethod:
+  Description: 'Public methods.'
+  Enabled: true
+  Exclude:
+    - 'spec/**/*'
+    - 'test/**/*'
+
 Style/DotPosition:
   Description: 'Checks the position of the dot in multi-line method calls.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#consistent-multi-line-chains'
