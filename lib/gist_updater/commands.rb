@@ -16,11 +16,17 @@ module GistUpdater
     class_option :debug, type: :boolean, aliases: :d,
                          desc: 'Debug mode', default: false
 
+    # CLI Interface to update your Gist
+    #
+    # @return (see GistUpdater::Updater#update)
     desc 'update', 'Update your Gist files (default)'
     def update
       Updater.new(options).update
     end
 
+    # CLI Interface to display version
+    #
+    # @return (see Kernel.puts)
     desc 'version', 'Display version'
     def version
       puts VERSION
