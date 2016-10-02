@@ -14,17 +14,17 @@ module GistUpdater
 
     # Update your Gist
     #
-    # @return [Fixnum] Updated count
+    # @return [Array<Sawyer::Resource>] Updated resource(s)
     def update
-      count = 0
+      updated = []
 
       config.each do |gist_id:, file_paths:|
         file_paths.each do |file_path|
-          count += 1 if update_by_gist(gist_id, file_path)
+          updated << update_by_gist(gist_id, file_path)
         end
       end
 
-      count
+      updated.compact
     end
 
     private
