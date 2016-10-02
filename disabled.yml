@@ -30,13 +30,6 @@ Style/Documentation:
     - 'spec/**/*'
     - 'test/**/*'
 
-Style/DocumentationMethod:
-  Description: 'Public methods.'
-  Enabled: false
-  Exclude:
-    - 'spec/**/*'
-    - 'test/**/*'
-
 Style/Encoding:
   Description: 'Use UTF-8 as the source file encoding.'
   StyleGuide: 'https://github.com/bbatsov/ruby-style-guide#utf-8'
