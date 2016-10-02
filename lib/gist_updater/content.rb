@@ -3,6 +3,7 @@
 require 'octokit'
 
 module GistUpdater
+  # A content related to a gist file
   class Content
     # @param user [String] GitHub username
     # @param access_token [String] GitHub personal access token

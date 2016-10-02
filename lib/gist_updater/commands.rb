@@ -3,6 +3,7 @@
 require 'thor'
 
 module GistUpdater
+  # CLI Interface
   class Commands < Thor
     package_name 'gist_updater'
     default_task :update
