@@ -59,7 +59,7 @@ GistUpdater::Updater.new(
   token: 'GitHub personal access token', # or $GISTUPDATER_ACCESS_TOKEN
   debug: 'true or false'
 ).update
-#=> update count
+#=> Array<Sawyer::Resource>
 ```
 
 ## YAML format
