@@ -111,4 +111,5 @@ RSpec.configure do |config|
   # rubocop:enable Style/BlockComments
 
   config.include FixtureHelper
+  config.include WebmockHelper
 end
