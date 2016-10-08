@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 describe GistUpdater::Config do
+  it_behaves_like 'ConfigInterface'
+
   describe '#each' do
     let(:config) { GistUpdater::Config.new(file) }
 

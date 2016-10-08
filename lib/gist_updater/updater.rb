@@ -15,12 +15,12 @@ module GistUpdater
     # Update your Gist
     #
     # @return [Array<Sawyer::Resource>] Updated resource(s)
-    def update
+    def update(content_class = Content)
       updated = []
 
       config.each do |gist_id:, file_paths:|
         file_paths.each do |file_path|
-          updated << update_by_gist(gist_id, file_path)
+          updated << update_by_gist(gist_id, file_path, content_class)
         end
       end
 
@@ -34,8 +34,8 @@ module GistUpdater
     # Update a Gist file
     #
     # @return (see GistUpdater::Content#update_if_need)
-    def update_by_gist(id, file_path)
-      Content.new(
+    def update_by_gist(id, file_path, content_class)
+      content_class.new(
         user: user,
         access_token: access_token,
         gist_id: id,

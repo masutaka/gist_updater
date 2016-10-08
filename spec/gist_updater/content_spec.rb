@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 describe GistUpdater::Content do
+  it_behaves_like 'ContentInterface'
+
   describe '#update_if_need' do
     let(:content) do
       GistUpdater::Content.new(
