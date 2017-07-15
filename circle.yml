@@ -1,8 +1,0 @@
-dependencies:
-  pre:
-    - gem install bundler --no-document
-
-test:
-  override:
-    - bundle exec rubocop
-    - bundle exec rake spec
