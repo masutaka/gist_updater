@@ -28,10 +28,10 @@ DESCRIPTION
   spec.add_dependency 'octokit', '~> 4.0'
   spec.add_dependency 'thor', '~> 0.19.1'
 
-  spec.add_development_dependency 'bundler', '~> 1.13'
-  spec.add_development_dependency 'rake', '~> 10.0'
-  spec.add_development_dependency 'rspec', '~> 3.0'
+  spec.add_development_dependency 'bundler', '~> 1.x'
+  spec.add_development_dependency 'rake', '~> 12.x'
+  spec.add_development_dependency 'rspec', '~> 3.x'
   spec.add_development_dependency 'rubocop', '~> 0.52.x'
-  spec.add_development_dependency 'webmock', '~> 2.1'
-  spec.add_development_dependency 'yard', '~> 0.9.5'
+  spec.add_development_dependency 'webmock', '~> 3.x'
+  spec.add_development_dependency 'yard', '~> 0.x'
 end
