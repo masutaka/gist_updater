@@ -5,7 +5,7 @@ class ConfigDouble
   end
 
   def each
-    yield(gist_id: '12345678', file_paths: %w(aaa.txt bbb.txt))
+    yield(gist_id: '12345678', file_paths: %w[aaa.txt bbb.txt])
   end
 end
 

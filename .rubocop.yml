@@ -4,3 +4,10 @@ AllCops:
     - bin/*
     - vendor/**/*
   TargetRubyVersion: 2.3
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
