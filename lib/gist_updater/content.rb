@@ -52,9 +52,7 @@ module GistUpdater
     end
 
     def pick_a_file(resource)
-      # rubocop:disable Style/SafeNavigation
       resource.files[file_name] if resource
-      # rubocop:enable Style/SafeNavigation
     end
 
     # Update a Gist file
