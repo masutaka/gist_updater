@@ -11,10 +11,10 @@ Gem::Specification.new do |spec|
   spec.email         = ['masutaka.net@gmail.com']
 
   spec.summary       = 'Updates your Gist files defined in YAML'
-  spec.description   = <<-EOS
-Updates your Gist files defined in YAML.
-For example, it's useful for syncing GitHub and Gist in CI.
-  EOS
+  spec.description   = <<-DESCRIPTION.gsub(/^\s+/, '')
+  Updates your Gist files defined in YAML.
+  For example, it's useful for syncing GitHub and Gist in CI.
+DESCRIPTION
   spec.homepage      = 'https://github.com/masutaka/gist_updater'
   spec.license       = 'MIT'
 
@@ -31,7 +31,7 @@ For example, it's useful for syncing GitHub and Gist in CI.
   spec.add_development_dependency 'bundler', '~> 1.13'
   spec.add_development_dependency 'rake', '~> 10.0'
   spec.add_development_dependency 'rspec', '~> 3.0'
-  spec.add_development_dependency 'rubocop', '~> 0.44.0'
-  spec.add_development_dependency 'yard', '~> 0.9.5'
+  spec.add_development_dependency 'rubocop', '~> 0.52.x'
   spec.add_development_dependency 'webmock', '~> 2.1'
+  spec.add_development_dependency 'yard', '~> 0.9.5'
 end

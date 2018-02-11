@@ -30,7 +30,7 @@ module GistUpdater
     attr_reader :file
 
     def config
-      @config ||= YAML.load(IO.read(file))
+      @config ||= YAML.safe_load(IO.read(file))
     end
   end
 end
