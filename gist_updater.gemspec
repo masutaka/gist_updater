@@ -11,10 +11,10 @@ Gem::Specification.new do |spec|
   spec.email         = ['masutaka.net@gmail.com']
 
   spec.summary       = 'Updates your Gist files defined in YAML'
-  spec.description   = <<-DESCRIPTION
+  spec.description   = <<-DESCRIPTION.gsub(/^\s+/, '')
   Updates your Gist files defined in YAML.
   For example, it's useful for syncing GitHub and Gist in CI.
-  DESCRIPTION
+DESCRIPTION
   spec.homepage      = 'https://github.com/masutaka/gist_updater'
   spec.license       = 'MIT'
 
