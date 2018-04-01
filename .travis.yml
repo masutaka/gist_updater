@@ -4,4 +4,6 @@ rvm:
   - 2.4.4
   - 2.3.7
 before_install: gem install -N bundler
-before_script: bundle exec rubocop
+before_script:
+  - ./bin/validate-target-ruby-version.rb
+  - bundle exec rubocop
